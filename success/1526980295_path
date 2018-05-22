@@ -1,0 +1,1 @@
+['remove signature.', 'upx unpack.', 'remove signature.', 'overlay append, size=256']
