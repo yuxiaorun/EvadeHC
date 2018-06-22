@@ -2,7 +2,7 @@
 import requests
 import time
 import get_file
-key='d1c94905ed72f6799aad01bff785ef20d19b1a8643b1e2b37cfaabccabd0d989'
+key=''
 class detector(object):
 
     def isMalicious(self):
