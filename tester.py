@@ -13,7 +13,7 @@ def get_file_info_from_path(dir,topdown=True):
     return dirinfo
 
 def submit_single_sample_debug(filepath):
-    REST_URL = "http://192.168.4.31:8090/tasks/create/file"
+    REST_URL = "http://xxxxxxxx/tasks/create/file"
     SAMPLE_FILE = filepath
 
     with open(SAMPLE_FILE, "rb") as sample:
@@ -24,7 +24,7 @@ def submit_single_sample_debug(filepath):
     return task_id
 
 def submit_single_sample(file):
-    r = requests.post("http://192.168.4.31:8090/tasks/create/submit", files=[
+    r = requests.post("http://xxxxxxxx/tasks/create/submit", files=[
 	    ("files", open(file,'rb')),
 	])
     submit_id = r.json()["submit_id"]
@@ -33,7 +33,7 @@ def submit_single_sample(file):
     return task_ids
 
 def query_task_status():
-    r = requests.get("http://192.168.4.31:8090/tasks/list")
+    r = requests.get("http://xxxxxxx/tasks/list")
     tasks=r.json()['tasks']
     reports=[]
     for i in tasks:
@@ -49,7 +49,7 @@ def submit_samples():
     print(ids)
 
 def get_report_score(id):
-    r=requests.get("http://192.168.4.31:8090/tasks/report/"+str(id))
+    r=requests.get("http://xxxxxxxx/tasks/report/"+str(id))
     if r.status_code!=200:
         print("fail to get report! code:"+str(r.status_code))
         return 0
@@ -60,7 +60,7 @@ def delete_task(ids):
     print("delete:")
     for id in ids:
         print("task:"+str(id))
-        r=requests.get("http://192.168.4.31:8090/tasks/delete/"+str(id))
+        r=requests.get("http://xxxxxxxx/tasks/delete/"+str(id))
         errors = r.json()
         print(r.json())
 
