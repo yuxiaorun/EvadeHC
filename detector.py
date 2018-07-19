@@ -37,9 +37,9 @@ class detector(object):
             if 'Cylance' in response.json()['scans'] is False:
                 print('NO Cylance')
                 return response.json()['scans']['Sophos']['result'] is not None
-            if 'Cylance' in response.json()['scans'] and response.json()['scans']['Cylance']['result'] is not None:
+            if 'Cylance' in response.json()['scans'] and response.json()['scans']['Cylance']['result'] is None:
                 score+=1
-            if response.json()['scans']['Sophos']['result'] is not None:
+            if response.json()['scans']['Sophos']['result'] is None:
                 score+=1
             print('score: ',score)
             return score>0
